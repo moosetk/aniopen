@@ -60,7 +60,7 @@ function title(path){
 // 渲染导航栏
 function nav(path){
     var html = "";
-    html += `<div style="max-width:150px;"><img class="mdui-typo-headline mdui-img-fluid folder" href="/"  style = "max-width: 100%;height: auto;width: auto\9;"src="https://ani.rip/ani/aniopen.png"></div>`;
+	html += `<div style="max-width:150px;"><img class="mdui-typo-headline mdui-img-fluid folder" href="/"  style = "max-width: 100%;height: auto;width: auto\9;"src="https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/aniopen.png"></div>`;
     var arr = path.trim('/').split('/');
     var p = '/';
     if(arr.length > 0){
@@ -439,7 +439,7 @@ $(function(){
 	var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
-    link.href = 'https://ani.rip/ani/favicon.ico';
+	link.href = 'https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 	
     render(path);
