@@ -142,10 +142,10 @@ function list_files(path,files){
             item['size'] = "";
         }
 
-        item['modifiedTime'] = utc2beijing(item['modifiedTime']);
+		item['modifiedTime'] = utc2HK(item['modifiedTime']);
         item['size'] = formatFileSize(item['size']);
         if(item['mimeType'] == 'application/vnd.google-apps.folder'){
-            html +=`<li id= "UL" class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
+            html +=`<li class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
 	            <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate">
 	            <i class="mdui-icon material-icons">folder_open</i>
 	              ${item.name}
@@ -350,7 +350,7 @@ function file_image(path){
 
 
 //时间转换
-function utc2beijing(utc_datetime) {
+function utc2HK(utc_datetime) {
     // 转为正常的时间格式 年-月-日 时:分:秒
     var T_pos = utc_datetime.indexOf('T');
     var Z_pos = utc_datetime.indexOf('Z');
