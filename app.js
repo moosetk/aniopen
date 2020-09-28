@@ -150,7 +150,7 @@ function list_files(path,files){
 	            <i class="mdui-icon material-icons">folder_open</i>
 	              ${item.name}
 	            </div>
-	            <div class="mdui-col-sm-3 mdui-text-right sortdate">${item['modifiedTime']}</div>
+	            <div class="mdui-col-sm-3 mdui-text-right" id="sortdate">${item['modifiedTime']}</div>
 	            <div class="mdui-col-sm-2 mdui-text-right">${item['size']}</div>
 	            </a>
 	        </li>`;
@@ -436,14 +436,14 @@ function sortListDirDate() {
             /* Check if the next item should switch place with the current item,
             based on the sorting direction (asc or desc): */
             if (dir == "asc") {
-                if (Number(b[i].getElementsByClassName("sortdate")[0].innerHTML) > Number(b[i + 1].getElementsByClassName("sortdate")[0].innerHTML)) {
+                if (Number(b[i].getElementByID("sortdate").innerHTML) > Number(b[i + 1].getElementById("sortdate").innerHTML)) {
                     /* If next item is alphabetically lower than current item,
                     mark as a switch and break the loop: */
                     shouldSwitch = true;
                     break;
                 }
             } else if (dir == "desc") {
-                if (Number(b[i].getElementsByClassName("sortdate")[0].innerHTML) < Number(b[i + 1].getElementsByClassName("sortdate")[0].innerHTML)) {
+                if (Number(b[i].getElementById("sortdate").innerHTML) < Number(b[i + 1].getElementById("sortdate").innerHTML)) {
                     /* If next item is alphabetically higher than current item,
                     mark as a switch and break the loop: */
                     shouldSwitch = true;
