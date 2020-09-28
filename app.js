@@ -436,8 +436,8 @@ function sortListDirDate() {
             /* Check if the next item should switch place with the current item,
             based on the sorting direction (asc or desc): */
             if (dir == "asc") {
-                var sortele1 = b[i].getElementByID("sortdate")
-                var sortele2 = b[i + 1].getElementByID("sortdate")
+                var sortele1 = b[i].getElementByID("sortdate");
+                var sortele2 = b[i + 1].getElementByID("sortdate");
                 if (Number(sortele1.innerHTML) > Number(sortele2.innerHTML)) {
                     /* If next item is alphabetically lower than current item,
                     mark as a switch and break the loop: */
@@ -445,8 +445,8 @@ function sortListDirDate() {
                     break;
                 }
             } else if (dir == "desc") {
-                var sortele1 = b[i].getElementByID("sortdate")
-                var sortele2 = b[i + 1].getElementByID("sortdate")
+                var sortele1 = b[i].getElementByID("sortdate");
+                var sortele2 = b[i + 1].getElementByID("sortdate");
                 if (Number(sortele1.innerHTML) < Number(sortele2.innerHTML)) {
                     /* If next item is alphabetically higher than current item,
                     mark as a switch and break the loop: */
