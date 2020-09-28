@@ -177,7 +177,7 @@ function list_files(path,files){
 	          <i class="mdui-icon material-icons">insert_drive_file</i>
 	            ${item.name}
 	          </div>
-	          <div class="mdui-col-sm-3 mdui-text-right">${item['modifiedTime']}</div>
+	          <div class="mdui-col-sm-3 mdui-text-right sortdate">${item['modifiedTime']}</div>
 	          <div class="mdui-col-sm-2 mdui-text-right">${item['size']}</div>
 	          </a>
 	      </li>`;
