@@ -433,7 +433,7 @@ function sortListDirDate() {
         b = list.getElementsByTagName("LI");
         c = document.getElementsByClassName("sortdate");
         // Loop through all list-items:
-        for (i = 0; i < (b.length - 1); i++) {
+        for (i = 0; i < (c.length - 1); i++) {
             // Start by saying there should be no switching:
             shouldSwitch = false;
             /* Check if the next item should switch place with the current item,
