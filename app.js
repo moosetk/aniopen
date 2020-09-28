@@ -440,7 +440,7 @@ function sortListDirDate() {
             based on the sorting direction (asc or desc): */
             if (dir == "asc") {
                 d = i + 1;
-                if (c[d].innerHTML != null) {
+                if (c[d] != null) {
                 if (Number(c[i].innerHTML) > Number(c[d].innerHTML)) {
                     shouldSwitch = true;
                     break;
@@ -448,7 +448,7 @@ function sortListDirDate() {
                 }
             } else if (dir == "desc") {
                 d = i + 1;
-                if (c[d].innerHTML != null) {
+                if (c[d] != null) {
                     if (Number(c[i].innerHTML) < Number(c[d].innerHTML)) {
                         shouldSwitch = true;
                         break;
