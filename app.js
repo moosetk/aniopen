@@ -440,18 +440,19 @@ function sortListDirDate() {
             based on the sorting direction (asc or desc): */
             if (dir == "asc") {
                 d = i + 1;
+                if (c[d].innerHTML != null) {
                 if (Number(c[i].innerHTML) > Number(c[d].innerHTML)) {
-                    /* If next item is alphabetically lower than current item,
-                    mark as a switch and break the loop: */
                     shouldSwitch = true;
                     break;
+                    }
                 }
             } else if (dir == "desc") {
-                if (Number(c[i].innerHTML) < Number(c[i + 1].innerHTML)) {
-                    /* If next item is alphabetically higher than current item,
-                    mark as a switch and break the loop: */
-                    shouldSwitch = true;
-                    break;
+                d = i + 1;
+                if (c[d].innerHTML != null) {
+                    if (Number(c[i].innerHTML) < Number(c[d].innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
             }
         }
