@@ -421,7 +421,7 @@ window.onpopstate = function(){
 
 //Sorting for list
 function sortListDirDate() {
-    var list, i, switching, b, shouldSwitch, dir, switchcount = 0, cw;
+    var list, i, switching, b, shouldSwitch, dir, switchcount = 0, c;
     list = document.getElementById("list");
     switching = true;
     // Set the sorting direction to ascending:
