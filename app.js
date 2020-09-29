@@ -98,7 +98,7 @@ function list(path){
 	     修改時間
 	<i class="mdui-icon material-icons icon-sort" data-sort="date" data-order="downward">expand_more</i>
 	    </div> 
-	    <div class="mdui-col-sm-2 mdui-text-right">
+	    <div class="mdui-col-sm-2 mdui-text-right" onclick="sortListDirSize()">
 	     檔案大小
 	<i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
 	    </div> 
@@ -151,7 +151,7 @@ function list_files(path,files){
 	              ${item.name}
 	            </div>
 	            <div class="mdui-col-sm-3 mdui-text-right sortdate">${item['modifiedTime']}</div>
-	            <div class="mdui-col-sm-2 mdui-text-right">${item['size']}</div>
+	            <div class="mdui-col-sm-2 mdui-text-right sortsize">${item['size']}</div>
 	            </a>
 	        </li>`;
         }else{
@@ -178,7 +178,7 @@ function list_files(path,files){
 	            ${item.name}
 	          </div>
 	          <div class="mdui-col-sm-3 mdui-text-right sortdate">${item['modifiedTime']}</div>
-	          <div class="mdui-col-sm-2 mdui-text-right">${item['size']}</div>
+	          <div class="mdui-col-sm-2 mdui-text-right sortsize">${item['size']}</div>
 	          </a>
 	      </li>`;
         }
@@ -419,7 +419,7 @@ window.onpopstate = function(){
 }
 
 
-//Sorting for list
+//Sorting for list date
 function sortListDirDate() {
     var list, i, switching, b, shouldSwitch, dir, switchcount = 0, c, d;
     list = document.getElementById("list");
@@ -453,6 +453,60 @@ function sortListDirDate() {
                         shouldSwitch = true;
                         break;
                     }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+            // Each time a switch is done, increase switchcount by 1:
+            switchcount++;
+        } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+
+//Sorting for list size
+function sortListDirSize() {
+    var list, i, switching, b, shouldSwitch, dir, switchcount = 0, c, d;
+    list = document.getElementById("list");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    // Make a loop that will continue until no switching has been done:
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        c = document.getElementsByClassName("sortsize");
+        console.log(c[0].innerHTML);
+        console.log(c[1].innerHTML);
+        // Loop through all list-items:
+        for (i = 0; i < (c.length - 1); i++) {
+            d = 0;
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Check if the next item should switch place with the current item,
+            based on the sorting direction (asc or desc): */
+            if (dir == "asc") {
+                d = i + 1;
+                if (c[i].innerHTML > c[d].innerHTML) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                d = i + 1;
+                if (c[i].innerHTML < c[d].innerHTML) {
+                    shouldSwitch = true;
+                    break;
+                }
             }
         }
         if (shouldSwitch) {
