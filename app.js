@@ -436,26 +436,23 @@ function sortListDirDate() {
         console.log(c[1].innerHTML);
         // Loop through all list-items:
         for (i = 0; i < (c.length - 1); i++) {
+            d = 0;
             // Start by saying there should be no switching:
             shouldSwitch = false;
             /* Check if the next item should switch place with the current item,
             based on the sorting direction (asc or desc): */
             if (dir == "asc") {
                 d = i + 1;
-                if (c[d] != null) {
-                if (Number(c[i].innerHTML) > Number(c[d].innerHTML)) {
+                if (c[i].innerHTML > c[d].innerHTML) {
                     shouldSwitch = true;
                     break;
                     }
-                }
             } else if (dir == "desc") {
                 d = i + 1;
-                if (c[d] != null) {
-                    if (Number(c[i].innerHTML) < Number(c[d].innerHTML)) {
+                    if (c[i].innerHTML < c[d].innerHTML) {
                         shouldSwitch = true;
                         break;
                     }
-                }
             }
         }
         if (shouldSwitch) {
