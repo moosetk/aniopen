@@ -432,7 +432,8 @@ function sortListDirDate() {
         switching = false;
         b = list.getElementsByTagName("LI");
         c = document.getElementsByClassName("sortdate");
-        console.log(c[0]);
+        console.log(c[0].innerHTML);
+        console.log(c[1].innerHTML);
         // Loop through all list-items:
         for (i = 0; i < (c.length - 1); i++) {
             // Start by saying there should be no switching:
