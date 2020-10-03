@@ -244,14 +244,14 @@ function file_code(path){
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop();
     var href = window.location.origin + path;
-    href = encodeURIComponent(href);
+    var href2 = encodeURIComponent(href);
 	var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">下載地址</label>
-	<input class="mdui-textfield-input" type="text" value="${href}"/>
+	<input class="mdui-textfield-input" type="text" value="${href2}"/>
 </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 
@@ -284,7 +284,7 @@ function file_code(path){
 // 文件展示 视频 |mp4|webm|avi|
 function file_video(path){
     var url = window.location.origin + path;
-    url = encodeURIComponent(url);
+    var url2 = encodeURIComponent(url);
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
 	    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
@@ -301,7 +301,7 @@ function file_video(path){
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
-	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
+	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url2}"/>
 	</div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -312,7 +312,7 @@ function file_video(path){
 // 文件展示 音频 |mp3|m4a|wav|ogg|
 function file_audio(path){
     var url = window.location.origin + path;
-    url = encodeURIComponent(url);
+    var url2 = encodeURIComponent(url);
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -323,7 +323,7 @@ function file_audio(path){
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
-	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
+	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url2}"/>
 	</div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -335,7 +335,7 @@ function file_audio(path){
 // 图片展示
 function file_image(path){
     var url = window.location.origin + path;
-    url = encodeURIComponent(url);
+    var url2 = encodeURIComponent(url);
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -343,7 +343,7 @@ function file_image(path){
 	<br>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">下載地址</label>
-	  <input class="mdui-textfield-input" type="text" value="${url}"/>
+	  <input class="mdui-textfield-input" type="text" value="${url2}"/>
 	</div>
         <br>
 </div>
