@@ -243,7 +243,8 @@ function file_code(path){
 	};
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop();
-	var href = window.location.origin + path;
+    var href = window.location.origin + path;
+    href = encodeURIComponent(href);
 	var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
