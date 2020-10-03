@@ -252,7 +252,7 @@ function file_code(path){
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">下載地址</label>
-	<input class="mdui-textfield-input" type="text" value="${href2}"/>
+	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 
@@ -303,7 +303,7 @@ function file_video(path){
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
-	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url2}"/>
+	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -326,7 +326,7 @@ function file_audio(path){
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
-	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url2}"/>
+	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -347,7 +347,7 @@ function file_image(path){
 	<br>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">下載地址</label>
-	  <input class="mdui-textfield-input" type="text" value="${url2}"/>
+	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
         <br>
 </div>
