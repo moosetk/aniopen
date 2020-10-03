@@ -244,7 +244,8 @@ function file_code(path){
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop();
     var href = window.location.origin + path;
-    var href2 = encodeURIComponent(href);
+    var pathe = encodeURIComponent(path);
+    var href2 = window.location.origin + pathe;
 	var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
@@ -284,7 +285,8 @@ function file_code(path){
 // 文件展示 视频 |mp4|webm|avi|
 function file_video(path){
     var url = window.location.origin + path;
-    var url2 = encodeURIComponent(url);
+    var pathe = encodeURIComponent(path);
+    var url2 = window.location.origin + pathe;
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
 	    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
@@ -312,7 +314,8 @@ function file_video(path){
 // 文件展示 音频 |mp3|m4a|wav|ogg|
 function file_audio(path){
     var url = window.location.origin + path;
-    var url2 = encodeURIComponent(url);
+    var pathe = encodeURIComponent(path);
+    var url2 = window.location.origin + pathe;
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -335,7 +338,8 @@ function file_audio(path){
 // 图片展示
 function file_image(path){
     var url = window.location.origin + path;
-    var url2 = encodeURIComponent(url);
+    var pathe = encodeURIComponent(path);
+    var url2 = window.location.origin + pathe;
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
