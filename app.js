@@ -285,7 +285,7 @@ function file_code(path){
 // 文件展示 视频 |mp4|webm|avi|
 function file_video(path){
     var url = window.location.origin + path;
-    var pathe = encodeURIComponent(path);
+    var pathe = toString(path);
     var share = window.location.origin + pathe + "?a=view";
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
@@ -304,9 +304,11 @@ function file_video(path){
 	<div class="mdui-textfield">
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
-	  <label style="color:white;" class="mdui-textfield-label">分享連結</label>
-	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${share}"/>
 	</div>
+    <div class="mdui-textfield">
+    <label style="color:white;" class="mdui-textfield-label">分享連結</label>
+	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share}"/>
+    </div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
