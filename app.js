@@ -20,7 +20,7 @@ function init(){
     $('body').html(html);
 }
 
-function render(path){
+function render(path, share){
 	if(path.indexOf("?") > 0){
 		path = path.substr(0,path.indexOf("?"));
 	}
@@ -29,7 +29,7 @@ function render(path){
     if(path.substr(-1) == '/'){
     	list(path);
     }else{
-	    file(path);
+	    file(path, share);
     }
 }
 
@@ -203,32 +203,32 @@ function get_file(path, file, callback){
 
 
 // 文件展示 ?a=view
-function file(path){
+function file(path, share){
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop().toLowerCase().replace(`?a=view`,"");
 	if("|html|php|css|go|java|js|json|txt|sh|md|".indexOf(`|${ext}|`) >= 0){
-		return file_code(path);
+        return file_code(path, share);
 	}
 
 	if("|mp4|webm|avi|".indexOf(`|${ext}|`) >= 0){
-		return file_video(path);
+        return file_video(path, share);
 	}
 
 	if("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0){
-		return file_video(path);
+        return file_video(path, share);
 	}
 	
 	if("|mp3|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0){
-		return file_audio(path);
+        return file_audio(path, share);
 	}
 
 	if("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
-		return file_image(path);
+        return file_image(path, share);
 	}
 }
 
 // 文件展示 |html|php|css|go|java|js|json|txt|sh|md|
-function file_code(path){
+function file_code(path, share){
 	var type = {
 		"html":"html",
 		"php":"php",
@@ -245,7 +245,7 @@ function file_code(path){
 	var ext = name.split('.').pop();
     var href = window.location.origin + path;
     var pathe = encodeURIComponent(path);
-    var href2 = window.location.origin + pathe;
+    var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
@@ -254,6 +254,10 @@ function file_code(path){
 	<label class="mdui-textfield-label">下載地址</label>
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
+    <div class="mdui-textfield">
+    <label style="color:white;" class="mdui-textfield-label">分享連結</label>
+	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share2}"/>
+    </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
@@ -283,10 +287,10 @@ function file_code(path){
 }
 
 // 文件展示 视频 |mp4|webm|avi|
-function file_video(path){
+function file_video(path, share){
     var url = window.location.origin + path;
     var pathe = path.toString();
-    var share = window.location.origin + pathe + "?a=view";
+    var share2 = window.location.origin + share + "?a=view";
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
 	    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
@@ -307,7 +311,7 @@ function file_video(path){
 	</div>
     <div class="mdui-textfield">
     <label style="color:white;" class="mdui-textfield-label">分享連結</label>
-	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share}"/>
+	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share2}"/>
     </div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -316,10 +320,9 @@ function file_video(path){
 }
 
 // 文件展示 音频 |mp3|m4a|wav|ogg|
-function file_audio(path){
+function file_audio(path, share){
     var url = window.location.origin + path;
-    var pathe = encodeURIComponent(path);
-    var url2 = window.location.origin + pathe;
+    var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -332,6 +335,10 @@ function file_audio(path){
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
+    <div class="mdui-textfield">
+    <label style="color:white;" class="mdui-textfield-label">分享連結</label>
+	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share2}"/>
+    </div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
@@ -340,10 +347,9 @@ function file_audio(path){
 
 
 // 图片展示
-function file_image(path){
+function file_image(path, share){
     var url = window.location.origin + path;
-    var pathe = encodeURIComponent(path);
-    var url2 = window.location.origin + pathe;
+    var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -353,6 +359,10 @@ function file_image(path){
 	  <label class="mdui-textfield-label">下載地址</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
+    <div class="mdui-textfield">
+    <label style="color:white;" class="mdui-textfield-label">分享連結</label>
+	 <input style="color:white;" class="mdui-textfield-input" type="text" value="${share2}"/>
+    </div>
         <br>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -601,18 +611,18 @@ $(function(){
         var pathcomp = encodeURIComponent(path[i]);
         path2 = path2 + '/' + pathcomp;
     }
-    path = path2;
+    var share = path2;
     $("body").on("click",'.folder',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
-        render(url);
+        render(url, share);
         return false;
     });
 
     $("body").on("click",'.view',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
-        render(url);
+        render(url, share);
         return false;
     });
     
@@ -622,5 +632,5 @@ $(function(){
 	link.href = 'https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 	
-    render(path);
+    render(path, share);
 });
