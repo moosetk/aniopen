@@ -605,10 +605,11 @@ function sortListDirName() {
 
 $(function(){
     init();
-    var path = window.location.pathname.split('/');
+    var path = window.location.pathname;
+    var rawpath = window.location.pathname.split('/');
     var path2 = "";
-    for (i = 1; i < path.length; i++) {
-        var pathcomp = encodeURIComponent(path[i]);
+    for (i = 1; i < rawpath.length; i++) {
+        var pathcomp = encodeURIComponent(rawpath[i]);
         path2 = path2 + '/' + pathcomp;
     }
     var share = path2;
