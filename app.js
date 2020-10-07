@@ -595,7 +595,13 @@ function sortListDirName() {
 
 $(function(){
     init();
-    var path = window.location.pathname;
+    var path = window.location.pathname.split('/');
+    var path2 = "";
+    for (i = 1; i < path.length; i++) {
+        var pathcomp = encodeURIComponent(path[i]);
+        path2 = path2 + '/' + pathcomp;
+    }
+    path = path2;
     $("body").on("click",'.folder',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
