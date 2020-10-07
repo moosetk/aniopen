@@ -250,7 +250,7 @@ function file_code(path){
         var pathcomp = encodeURIComponent(rawshare[i]);
         share = share + '/' + pathcomp;
     }
-    var share2 = window.location.origin + share + "?a=view";
+    var share2 = share + "?a=view";
 	var content = `
 <div class="mdui-container">
 <pre id="editor" ></pre>
@@ -301,7 +301,7 @@ function file_video(path){
         share = share + '/' + pathcomp;
     }
 
-    var share2 = window.location.origin + share + "?a=view";
+    var share2 = share + "?a=view";
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
 	    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
@@ -339,7 +339,7 @@ function file_audio(path){
         var pathcomp = encodeURIComponent(rawshare[i]);
         share = share + '/' + pathcomp;
     }
-    var share2 = window.location.origin + share + "?a=view";
+    var share2 = share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
@@ -372,7 +372,7 @@ function file_image(path){
         var pathcomp = encodeURIComponent(rawshare[i]);
         share = share + '/' + pathcomp;
     }
-    var share2 = window.location.origin + share + "?a=view";
+    var share2 = share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
