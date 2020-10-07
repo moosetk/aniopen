@@ -20,7 +20,7 @@ function init(){
     $('body').html(html);
 }
 
-function render(path, share){
+function render(path){
 	if(path.indexOf("?") > 0){
 		path = path.substr(0,path.indexOf("?"));
 	}
@@ -29,7 +29,7 @@ function render(path, share){
     if(path.substr(-1) == '/'){
     	list(path);
     }else{
-	    file(path, share);
+	    file(path);
     }
 }
 
@@ -203,32 +203,32 @@ function get_file(path, file, callback){
 
 
 // 文件展示 ?a=view
-function file(path, share){
+function file(path){
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop().toLowerCase().replace(`?a=view`,"");
 	if("|html|php|css|go|java|js|json|txt|sh|md|".indexOf(`|${ext}|`) >= 0){
-        return file_code(path, share);
+        return file_code(path);
 	}
 
 	if("|mp4|webm|avi|".indexOf(`|${ext}|`) >= 0){
-        return file_video(path, share);
+        return file_video(path);
 	}
 
 	if("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0){
-        return file_video(path, share);
+        return file_video(path);
 	}
 	
 	if("|mp3|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0){
-        return file_audio(path, share);
+        return file_audio(path);
 	}
 
 	if("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
-        return file_image(path, share);
+        return file_image(path);
 	}
 }
 
 // 文件展示 |html|php|css|go|java|js|json|txt|sh|md|
-function file_code(path, share){
+function file_code(path){
 	var type = {
 		"html":"html",
 		"php":"php",
@@ -244,7 +244,12 @@ function file_code(path, share){
 	var name = path.split('/').pop();
 	var ext = name.split('.').pop();
     var href = window.location.origin + path;
-    var pathe = encodeURIComponent(path);
+    var rawshare = url.split('/');
+    var share = "";
+    for (i = 1; i < rawshare.length; i++) {
+        var pathcomp = encodeURIComponent(rawshare[i]);
+        share = share + '/' + pathcomp;
+    }
     var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container">
@@ -287,9 +292,15 @@ function file_code(path, share){
 }
 
 // 文件展示 视频 |mp4|webm|avi|
-function file_video(path, share){
+function file_video(path){
     var url = window.location.origin + path;
-    var pathe = path.toString();
+    var rawshare = url.split('/');
+    var share = "";
+    for (i = 1; i < rawshare.length; i++) {
+        var pathcomp = encodeURIComponent(rawshare[i]);
+        share = share + '/' + pathcomp;
+    }
+
     var share2 = window.location.origin + share + "?a=view";
 	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
 	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
@@ -320,8 +331,14 @@ function file_video(path, share){
 }
 
 // 文件展示 音频 |mp3|m4a|wav|ogg|
-function file_audio(path, share){
+function file_audio(path){
     var url = window.location.origin + path;
+    var rawshare = url.split('/');
+    var share = "";
+    for (i = 1; i < rawshare.length; i++) {
+        var pathcomp = encodeURIComponent(rawshare[i]);
+        share = share + '/' + pathcomp;
+    }
     var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
@@ -347,8 +364,14 @@ function file_audio(path, share){
 
 
 // 图片展示
-function file_image(path, share){
+function file_image(path){
     var url = window.location.origin + path;
+    var rawshare = url.split('/');
+    var share = "";
+    for (i = 1; i < rawshare.length; i++) {
+        var pathcomp = encodeURIComponent(rawshare[i]);
+        share = share + '/' + pathcomp;
+    }
     var share2 = window.location.origin + share + "?a=view";
 	var content = `
 <div class="mdui-container-fluid">
@@ -606,24 +629,17 @@ function sortListDirName() {
 $(function(){
     init();
     var path = window.location.pathname;
-    var rawpath = window.location.pathname.split('/');
-    var path2 = "";
-    for (i = 1; i < rawpath.length; i++) {
-        var pathcomp = encodeURIComponent(rawpath[i]);
-        path2 = path2 + '/' + pathcomp;
-    }
-    var share = path2;
     $("body").on("click",'.folder',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
-        render(url, share);
+        render(url);
         return false;
     });
 
     $("body").on("click",'.view',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
-        render(url, share);
+        render(url);
         return false;
     });
     
@@ -633,5 +649,5 @@ $(function(){
 	link.href = 'https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/favicon.ico';
     document.getElementsByTagName('head')[0].appendChild(link);
 	
-    render(path, share);
+    render(path);
 });
