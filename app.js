@@ -319,7 +319,7 @@ function file_video(path){
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
-    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
+    <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
 	`;
@@ -349,7 +349,7 @@ function file_audio(path){
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
-    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
+    <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
 	`;
@@ -377,7 +377,7 @@ function file_image(path){
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
-    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
+    <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
 	`;
