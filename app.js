@@ -261,7 +261,7 @@ function file_code(path){
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
-<a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
+    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
 
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
 <script src="https://cdn.staticfile.org/ace/1.4.7/ext-language_tools.js"></script>
@@ -319,9 +319,9 @@ function file_video(path){
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
 	$('#content').html(content);
 }
@@ -349,9 +349,9 @@ function file_audio(path){
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
 	$('#content').html(content);
 }
@@ -377,9 +377,9 @@ function file_image(path){
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
     <button href="${share2}" class="mdui-btn mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
 	$('#content').html(content);
 }
