@@ -261,7 +261,7 @@ function file_code(path){
 	<label class="mdui-textfield-label">下載地址</label>
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
-    <button href="${share2}" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button href="${share2}" id="copybt" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
     <button onclick="javascript:location.href='${href}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
 
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
@@ -319,7 +319,7 @@ function file_video(path){
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
-    <button href="${share2}" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button href="${share2}" id="copybt" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
     <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
@@ -350,7 +350,7 @@ function file_audio(path){
 	  <label style="color:white;" class="mdui-textfield-label">下載地址</label>
 	  <input style="color:white;" class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
-    <button href="${share2}" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button href="${share2}" id="copybt" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
     <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
@@ -379,7 +379,7 @@ function file_image(path){
 	  <label class="mdui-textfield-label">下載地址</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
-    <button href="${share2}" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
+    <button href="${share2}" id="copybt" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onClick="copyURI(event)"><i class="mdui-icon mdui-icon-left ion-share"></i> Share</button>
     <button onclick="javascript:location.href='${url}'" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">Download</button>
     <br>
 </div>
@@ -624,9 +624,11 @@ function sortListDirName() {
 function copyURI(evt) {
     evt.preventDefault();
     navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
-        /* clipboard successfully set */
+    /* clipboard successfully set */
+        document.getElementById("copybt").innerHTML = "Link Copied !!";
     }, () => {
         /* clipboard write failed */
+            alert("Link copy failed ! Press the share button again !!");
     });
 }
 
