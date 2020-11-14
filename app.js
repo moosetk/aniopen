@@ -72,7 +72,7 @@ function nav(path){
             if(n == ''){
                 break;
             }
-            html += `<style>@media only screen and (max-width: 615px){.folder{display:none;}}</style><i class="mdui-icon material-icons mdui-icon-dark folder" style="margin:0;">chevron_right</i><a class="folder" href="${p}">${n}</a>`;
+            html += `<style>@media only screen and (max-width: 615px){#pathlist{display:none;}}</style><i class="mdui-icon material-icons mdui-icon-dark folder" id="pathlist" style="margin:0;">chevron_right</i><a class="folder" href="${p}">${n}</a>`;
         }
 		html += `<div class="mdui-toolbar-spacer"></div><div class="mdui-textfield"><i style="top:0.5px;right:200px"class="mdui-icon material-icons">search</i><input style="color:white; cursor:text;" id="searchinput" class="mdui-textfield-input" onkeyup="globalsearch()" type="text" placeholder="搜尋"/></div>
     <a href="https://t.me/channel_ani" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}">
