@@ -2,7 +2,7 @@
 
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
-document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.7.9/manifest.json">');
+document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.0/manifest.json">');
 document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
 document.write('<script src="https://raw.githubusercontent.com/RyanL-29/aniopen/master/index.js"></script>');
 // markdown支持
