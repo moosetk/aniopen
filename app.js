@@ -1,4 +1,6 @@
 // 在head 中 加载 必要静态
+document.write('<script>import "https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate";</script>');
+document.write('<script>const el = document.createElement("pwa-update"); document.body.appendChild(el); </script>');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
 document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.7.2/manifest.json">');
