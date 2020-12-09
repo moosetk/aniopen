@@ -110,6 +110,12 @@
             "src": "https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/32x32.png",
             "sizes": "32x32",
             "type": "image/png"
+        },
+        {
+            "src": "https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/maskable_icon.png",
+            "sizes": "698x698",
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "url": "https://open.ani.rip",
