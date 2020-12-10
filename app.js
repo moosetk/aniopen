@@ -20,7 +20,13 @@ function init(){
 </header>
 <div id="content" class="mdui-container"> 
 </div>
-	`;
+<div class="mdui-dialog" id="dialog">
+    <div class="mdui-dialog-title">New Update Available</div>
+    <div class="mdui-dialog-content">Please close and restart the app</div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>OK</button>
+    </div>
+  </div>`;
     $('body').html(html);
 }
 
