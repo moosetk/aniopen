@@ -8,10 +8,11 @@ if ("serviceWorker" in navigator)
 							case 'installed':
 								if (navigator.serviceWorker.controller) {
 									// new update available
-									resolve(true);
+									var inst = new mdui.Dialog('#dialog');
+									inst.open();
 								} else {
 									// no update available
-									resolve(false);
+									
 								}
 								break;
 						}
