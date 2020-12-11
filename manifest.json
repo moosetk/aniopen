@@ -4,7 +4,7 @@
     "scope": "https://open.ani.rip/",
     "display": "standalone",
     "start_url": "https://open.ani.rip/",
-    "background_color": "#5B5B5B",
+    "background_color": "#424242",
     "theme_color": "#272727",
     "description": "",
     "orientation": "any",
