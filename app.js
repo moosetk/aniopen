@@ -2,7 +2,7 @@
 
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
-document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.4/manifest.json">');
+document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.5/manifest.json">');
 document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
 // markdown支持
 document.write('<script src="//cdn.jsdelivr.net/npm/markdown-it@10.0.0/dist/markdown-it.min.js"></script>');
