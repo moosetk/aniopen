@@ -1,6 +1,7 @@
 // 在head 中 加载 必要静态
 
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
+document.write('<script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
 document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.6/manifest.json">');
 document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
@@ -634,8 +635,6 @@ function sortListDirName() {
         }
     }
 }
-
-import * as mduijs from 'https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js';
 
 /*Share Copy */
 function copyURI(evt) {
