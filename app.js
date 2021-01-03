@@ -625,10 +625,16 @@ function copyURI(evt) {
     evt.preventDefault();
     navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
     /* clipboard successfully set */
-        document.getElementById("copybt").innerHTML = "Link Copied !!";
+        mdui.snackbar({
+            message: '已複製連結 - Link Copied',
+            position: 'right-top'
+        });
     }, () => {
         /* clipboard write failed */
-            alert("Link copy failed ! Press the share button again !!");
+            mdui.snackbar({
+                message: '複製連結失敗 - Link Copy failed',
+                position: 'right-top'
+            });
     });
 }
 
