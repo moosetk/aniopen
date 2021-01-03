@@ -635,18 +635,20 @@ function sortListDirName() {
     }
 }
 
+import * as mduijs from 'https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js';
+
 /*Share Copy */
 function copyURI(evt) {
     evt.preventDefault();
     navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
         /* clipboard successfully set */
-        mdui.snackbar({
+        mduijs.mdui.snackbar({
             message: '已複製連結 - Link Copied',
             position: 'right-top'
         });
     }, () => {
         /* clipboard write failed */
-        mdui.snackbar({
+            mduijs.mdui.snackbar({
             message: '複製連結失敗 - Link Copy failed',
             position: 'right-top'
         });
