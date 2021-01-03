@@ -639,17 +639,17 @@ function sortListDirName() {
 function copyURI(evt) {
     evt.preventDefault();
     navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
-    /* clipboard successfully set */
+        /* clipboard successfully set */
         mdui.snackbar({
             message: '已複製連結 - Link Copied',
             position: 'right-top'
         });
     }, () => {
         /* clipboard write failed */
-            mdui.snackbar({
-                message: '複製連結失敗 - Link Copy failed',
-                position: 'right-top'
-            });
+        mdui.snackbar({
+            message: '複製連結失敗 - Link Copy failed',
+            position: 'right-top'
+        });
     });
 }
 
