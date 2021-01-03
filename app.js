@@ -1,9 +1,8 @@
 // 在head 中 加载 必要静态
 
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
-document.write('<script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
-document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.7/manifest.json">');
+document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.9/manifest.json">');
 document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
 // markdown支持
 document.write('<script src="//cdn.jsdelivr.net/npm/markdown-it@10.0.0/dist/markdown-it.min.js"></script>');
@@ -634,24 +633,6 @@ function sortListDirName() {
             }
         }
     }
-}
-
-/*Share Copy */
-function copyURI(evt) {
-    evt.preventDefault();
-    navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
-        /* clipboard successfully set */
-        mduijs.mdui.snackbar({
-            message: '已複製連結 - Link Copied',
-            position: 'right-top'
-        });
-    }, () => {
-        /* clipboard write failed */
-            mduijs.mdui.snackbar({
-            message: '複製連結失敗 - Link Copy failed',
-            position: 'right-top'
-        });
-    });
 }
 
 /*Easter egg */
