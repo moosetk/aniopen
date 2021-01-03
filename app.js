@@ -1,6 +1,9 @@
 // 在head 中 加载 必要静态
+
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
+document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@0.8.5/manifest.json">');
+document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
 // markdown支持
 document.write('<script src="//cdn.jsdelivr.net/npm/markdown-it@10.0.0/dist/markdown-it.min.js"></script>');
 document.write('<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdui-toolbar>*{padding:0 6px;margin:0 2px}.mdui-toolbar>i{opacity:.5}.mdui-toolbar>.mdui-typo-headline{padding:0 1pc 0 0}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.active,a.mdui-typo-headline{opacity:1}.mdui-container{max-width:980px}.mdui-list-item{transition:none}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:3pc}.mdui-list-item{margin:2px 0;padding:0}.mdui-toolbar>a:last-child{opacity:1}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}.mdui-toolbar>.mdui-typo-headline,.mdui-toolbar>a:last-child,.mdui-toolbar>i:first-child{display:block}}</style>');
@@ -17,7 +20,13 @@ function init(){
 </header>
 <div id="content" class="mdui-container"> 
 </div>
-	`;
+<div class="mdui-dialog" id="dialog">
+    <div class="mdui-dialog-title">New Update Available</div>
+    <div class="mdui-dialog-content">Please close and restart the app</div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>OK</button>
+    </div>
+  </div>`;
     $('body').html(html);
 }
 
@@ -173,6 +182,11 @@ function list_files(path,files){
 	            p += "?a=view";
 	            c += " view";
             }
+	    if("|js|".indexOf(`|${ext.toLowerCase()}|`) >= 0){
+	            
+            }
+	    else
+	    {
             html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate sortname">
 	          <i class="mdui-icon material-icons">insert_drive_file</i>
@@ -182,6 +196,7 @@ function list_files(path,files){
 	          <div class="mdui-col-sm-2 mdui-text-right sortsize">${item['size']}</div>
 	          </a>
 	      </li>`;
+	    }
         }
     }
     $('#list').html(html);
