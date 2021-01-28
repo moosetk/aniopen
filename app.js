@@ -3,7 +3,7 @@
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">');
 document.write('<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>');
 document.write('<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons.min.css">');
-document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@1.0.0/manifest.json">');
+document.write('<link rel="manifest" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen@1.0.1/manifest.json">');
 document.write('<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/192x192nt.png">');
 // markdown支持
 document.write('<script src="//cdn.jsdelivr.net/npm/markdown-it@10.0.0/dist/markdown-it.min.js"></script>');
@@ -324,10 +324,10 @@ function file_video(path){
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
-	//<video class="mdui-video-fluid mdui-center" preload controls>
-	  //<source src="${url}" type="video/mp4">
-	//</video>
-	//<br> 如果以上片段無法播放，可使用以下 VLC 播放連結 (請使用 Google Chrome)
+	<!--<video class="mdui-video-fluid mdui-center" preload controls>-->
+	 <!--<source src="${url}" type="video/mp4">-->
+	<!--</video>-->
+    <!-- <br> 如果以上片段無法播放，可使用以下 VLC 播放連結 (請使用 Google Chrome)-->
 	<br>
 	<br>
 	<!-- 固定标签 -->
