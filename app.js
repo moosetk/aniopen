@@ -317,17 +317,17 @@ function file_video(path){
     }
     var share2 = share.replaceAll(/%25/g, "%");
     share2 = 'https:' + share2 + "?a=view";
-	//var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
-	//if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
-	    //var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
-	//}
+	var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
+	if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
+	    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
+	}
 	var content = `
 <div class="mdui-container-fluid">
 	<br>
-	<!--<video class="mdui-video-fluid mdui-center" preload controls>-->
-	 <!--<source src="${url}" type="video/mp4">-->
-	<!--</video>-->
-    <!-- <br> 如果以上片段無法播放，可使用以下 VLC 播放連結 (請使用 Google Chrome)-->
+	<video class="mdui-video-fluid mdui-center" preload controls>
+	 <source src="${url}" type="video/mp4">
+	</video>
+    <br> 如果以上片段無法播放，可使用以下 VLC 播放連結 (請使用 Google Chrome)
 	<br>
 	<br>
 	<!-- 固定标签 -->
