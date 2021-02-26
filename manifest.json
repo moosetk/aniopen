@@ -112,7 +112,7 @@
       "type": "image/png"
     },
     {
-      "src": "https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/pwa_icon/maskable_icon2.png",
+      "src": "https://raw.githubusercontent.com/RyanL-29/aniopen/master/pwa_icon/maskable_icon2.png",
       "sizes": "698x698",
       "type": "image/png",
       "purpose": "any maskable"
