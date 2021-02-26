@@ -314,12 +314,12 @@ function file_video(path) {
     }
     var share2 = share.replaceAll(/%25/g, "%");
     share2 = 'https:' + share2 + "?a=view";
-    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${url}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
+    var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900" href="vlc://${share2}" target="_blank"><i class="mdui-icon material-icons">&#xe038;</i> 在 VLC media player 中播放</a>`;
     if (/(Android)/i.test(navigator.userAgent)) { //Android
-        var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${url}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
+        var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.open("vlc://${share2}", "_blank");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
     }
     else if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //Apple
-        var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.location.replace("vlc://${url}");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
+        var playBtn = `<a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple-900 onclick='window.location.replace("vlc://${share2}");><i class="mdui-icon material-icons">&#xe039;</i> 在 VLC media player 中播放</a>`;
     }
     var content = `
 <div class="mdui-container-fluid">
