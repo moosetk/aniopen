@@ -356,13 +356,14 @@ function file_video(path) {
             type: 'auto',
         },
     });
+    var contentType = null;
     var xhttp = new XMLHttpRequest();
     xhttp.open('HEAD', url);
     xhttp.onreadystatechange = function () {
         if (this.readyState == this.DONE) {
             console.log(this.status);
             console.log(this.getResponseHeader("Content-Type"));
-            var contentType = this.getResponseHeader("Content-Type");
+            contentType = this.getResponseHeader("Content-Type");
         }
     };
     xhttp.send();
