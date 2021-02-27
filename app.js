@@ -356,7 +356,52 @@ function file_video(path) {
             type: 'auto',
         },
     });
+    var mediaInfo = new chrome.cast.media.MediaInfo(url, contentType);
+    var request = new chrome.cast.media.LoadRequest(mediaInfo);
+    castSession.loadMedia(request).then(
+        function () { console.log('Load succeed'); },
+        function (errorCode) { console.log('Error code: ' + errorCode); });
+    var player = new cast.framework.RemotePlayer();
+    var playerController = new cast.framework.RemotePlayerController(player);
+    var player = new cast.framework.RemotePlayer();
+    var controller = new cast.framework.RemotePlayerController(player);
+    update.controller.addEventListener(
+        cast.framework.RemotePlayerEventType.ANY_CHANGE,
+        function (event) {
+            if (!$scope.$$phase) $scope.$apply();
+        });
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function () {
+            // Use the current session to get an up to date media status.
+            let session = cast.framework.CastContext.getInstance().getCurrentSession();
 
+            if (!session) {
+                return;
+            }
+
+            // Contains information about the playing media including currentTime.
+            let mediaStatus = session.getMediaSession();
+            if (!mediaStatus) {
+                return;
+            }
+
+            // mediaStatus also contains the mediaInfo containing metadata and other
+            // information about the in progress content.
+            let mediaInfo = mediaStatus.media;
+        });
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED, function () {
+            if (!player.isConnected) {
+                console.log('RemotePlayerController: Player disconnected');
+                // Update local player to disconnected state
+            }
+        });
+    function stopCasting() {
+        var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
+        // End the session and pass 'true' to indicate
+        // that Web Receiver application should be stopped.
+        castSession.endSession(true);
+    }
 
 }
 
