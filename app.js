@@ -356,53 +356,6 @@ function file_video(path) {
             type: 'auto',
         },
     });
-    function get_url_extension(url2) {
-        return url2.split(/[#?]/)[0].split('.').pop().trim();
-    }
-    var contentType = 'video/' + get_url_extension(url);
-    console.log(contentType);
-    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-    var mediaInfo = new chrome.cast.media.MediaInfo(url, contentType);
-    console.log('Below variable -mediaInfo ');
-    console.log(mediaInfo);
-    var request = new chrome.cast.media.LoadRequest(mediaInfo);
-    console.log('Below variable -request ');
-    console.log(request);
-    var player = new cast.framework.RemotePlayer();
-    var playerController = new cast.framework.RemotePlayerController(player);
-    playerController.addEventListener(
-        cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function () {
-            // Use the current session to get an up to date media status.
-            let session = cast.framework.CastContext.getInstance().getCurrentSession();
-
-            if (!session) {
-                return;
-            }
-
-            // Contains information about the playing media including currentTime.
-            let mediaStatus = session.getMediaSession();
-            if (!mediaStatus) {
-                return;
-            }
-
-            // mediaStatus also contains the mediaInfo containing metadata and other
-            // information about the in progress content.
-            let mediaInfo = mediaStatus.media;
-        });
-    playerController.addEventListener(
-        cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED, function () {
-            if (!player.isConnected) {
-                console.log('RemotePlayerController: Player disconnected');
-                // Update local player to disconnected state
-            }
-        });
-    function stopCasting() {
-        var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-        // End the session and pass 'true' to indicate
-        // that Web Receiver application should be stopped.
-        castSession.endSession(true);
-    }
-
 }
 
 // 文件展示 音频 |mp3|m4a|wav|ogg|
