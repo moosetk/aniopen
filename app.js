@@ -71,7 +71,7 @@ function title(path) {
 // 渲染导航栏
 function nav(path) {
     var html = "";
-    html += `<div style="max-width:150px;"><img class="mdui-typo-headline mdui-img-fluid folder" href="/"  style = "max-width: 100%;height: auto;width: auto;"src="https://cdn.jsdelivr.net/gh/RyanL-29/aniopen/aniopen.png"></div>`;
+    html += `<div style="max-width:150px;"><img class="mdui-typo-headline mdui-img-fluid folder" href="/"  style = "max-width: 100%;height: auto;width: auto;"src="https://cdn.jsdelivr.net/gh/moosetk/aniopen/aniopen.png"></div>`;
     var arr = path.trim('/').split('/');
     var p = '/';
     if (arr.length > 0) {
