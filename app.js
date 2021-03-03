@@ -169,6 +169,7 @@ function list_files(path, files) {
 	        </li>`;
         } else {
             var p = path + item.name;
+            var k = p;
             var c = "file";
             if (item.name == "README.md") {
                 get_file(p, item, function (data) {
@@ -182,7 +183,6 @@ function list_files(path, files) {
             }
             var ext = p.split('.').pop();
             if ("|html|php|css|go|java|js|json|txt|sh|md|mp4|webm|avi|bmp|jpg|jpeg|png|gif|m4a|mp3|wav|ogg|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext.toLowerCase()}|`) >= 0) {
-                var k = p;
                 p += "?a=view";
                 c += " view";
             }
